@@ -1,4 +1,4 @@
-[] Javascript String, Array , Object , Array of Object
-[] Javascript array map , array of object map 
-[] Javascript function , call back function
-[] useState hook in react 
+- Javascript String, Array , Object , Array of Object
+- Javascript array map , array of object map 
+- Javascript function , call back function
+- useState hook in react 
