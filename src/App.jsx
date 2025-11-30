@@ -23,13 +23,15 @@ function App() {
       ...prev,
       { id: prev.length + 1, text: newtext.trim() }
     ]);
-
-    console.log(text)
+    localStorage.setItem('myNotes', myNotes)
+    const notes = localStorage.getItem('myNotes')
   }
 
   const handleNoteDelete = (id) => {
     const notes = myNotes.filter(note => note.id != id)
     setMyNotes([...notes])
+    localStorage.setItem('myNotes', myNotes)
+
   }
 
   return (
