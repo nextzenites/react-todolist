@@ -3,12 +3,27 @@ import { useState } from "react"
 function App() {
 
   const notes = [
-    'Note 1: Weak up in the morning',
-    'Note 2: Brush Teeth',
-    'Note 3: Take breakfast',
-    'Note 4: Wear dress',
-    'Note 4: Wear dress',
+    {},{}
   ]
+
+  // object  { key: value }
+  // array of object [{ key: value } , {key value }]
+
+  const [myNotes, setMyNotes] = useState(notes);
+
+  const handleAddNewNote = (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const newtext = formData.get("newNote");
+
+    setMyNotes(prev => [
+      ...prev,
+      { id: prev.length + 1, text: newtext.trim() }
+    ]);
+
+    console.log(text)
+  }
 
   return (
     <div className="container mx-auto h-screen">
@@ -18,36 +33,31 @@ function App() {
           <h1 className="mt-12 text-2xl font-semibold">Todo List APP</h1>
 
           {/* text input */}
-          <fieldset className="fieldset">
-            <legend className="fieldset-legend">What is your task?</legend>
-            <input type="text" className="input" placeholder="Type here" />
-            <button className="btn btn-neutral shadow-sm!">Neutral</button>
-          </fieldset>
+          <form onSubmit={handleAddNewNote}>
+            <fieldset className="fieldset">
+              <legend className="fieldset-legend">What is your task?</legend>
+              <input type="text" className="input" placeholder="Type here" name="newNote" />
+              <button type="submit" className="btn btn-neutral shadow-sm!">Add new note</button>
+            </fieldset>
+          </form>
 
 
           <div className="mt-4">
             <ul className="list bg-amber-100 rounded-box shadow-md">
 
               {
-                notes.map((note, index) => {
+                myNotes.map((note, index) => {
                   return (
 
                     <li className="list-row">
                       <div>
-                        <div> {note} </div>
+                        <div> {note.id} - {note.text} </div>
                       </div>
                     </li>
 
                   );
                 })
               }
-
-
-
-
-
-
-
             </ul>
           </div>
 
