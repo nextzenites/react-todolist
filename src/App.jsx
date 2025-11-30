@@ -3,7 +3,9 @@ import { useState } from "react"
 function App() {
 
   const notes = [
-    {},{}
+    { id: 1, text: 'Wake up' },
+    { id: 2, text: 'tooth Brush' },
+    { id: 3, text: 'breakfast' }
   ]
 
   // object  { key: value }
@@ -23,6 +25,11 @@ function App() {
     ]);
 
     console.log(text)
+  }
+
+  const handleNoteDelete = (id) => {
+    const notes = myNotes.filter(note => note.id != id)
+    setMyNotes([...notes])
   }
 
   return (
@@ -53,6 +60,7 @@ function App() {
                       <div>
                         <div> {note.id} - {note.text} </div>
                       </div>
+                      <button className="btn" onClick={() => handleNoteDelete(note.id)}>❌</button>
                     </li>
 
                   );
