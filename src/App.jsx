@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 function App() {
 
@@ -12,6 +12,21 @@ function App() {
   // array of object [{ key: value } , {key value }]
 
   const [myNotes, setMyNotes] = useState(notes);
+  const [userName, setUserName] = useState('');
+
+  const setName = () => {
+    const nameFromStorage = localStorage.getItem('user-name')
+    if (nameFromStorage) {
+      setUserName(nameFromStorage)
+    } else {
+      setUserName("New User")
+    }
+  }
+
+  useEffect(() => {
+    setName()
+  }, [])
+
 
   const handleAddNewNote = (event) => {
     event.preventDefault();
@@ -23,15 +38,12 @@ function App() {
       ...prev,
       { id: prev.length + 1, text: newtext.trim() }
     ]);
-    localStorage.setItem('myNotes', myNotes)
-    const notes = localStorage.getItem('myNotes')
+
   }
 
   const handleNoteDelete = (id) => {
     const notes = myNotes.filter(note => note.id != id)
     setMyNotes([...notes])
-    localStorage.setItem('myNotes', myNotes)
-
   }
 
   return (
@@ -39,7 +51,9 @@ function App() {
       <div className="flex items-center justify-center">
         <div>
           {/* title */}
-          <h1 className="mt-12 text-2xl font-semibold">Todo List APP</h1>
+
+          <h1 className="mt-12 text-2xl font-semibold">Welcome {userName} </h1>
+          <h1 className="mt-2 text-2xl font-semibold">Todo List APP</h1>
 
           {/* text input */}
           <form onSubmit={handleAddNewNote}>
