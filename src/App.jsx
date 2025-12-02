@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
   }
 
   useEffect(() => {
+    console.log('Home')
     setName()
   }, [])
 
@@ -54,7 +56,7 @@ function App() {
 
           <h1 className="mt-12 text-2xl font-semibold">Welcome {userName} </h1>
           <h1 className="mt-2 text-2xl font-semibold">Todo List APP</h1>
-
+          <Link to={'/'}>Login Link </Link>
           {/* text input */}
           <form onSubmit={handleAddNewNote}>
             <fieldset className="fieldset">

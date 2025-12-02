@@ -12,3 +12,5 @@ Task 2:
 
 Task 3: 
 - create custom hook (useLocalStorage)
+- React Router Setup and Configuration
+- Create Signup page and configure route 
