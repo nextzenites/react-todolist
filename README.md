@@ -8,3 +8,7 @@ Task 2:
 - LocalStorage Set Item , Get item (stringify, parse )
 - Javascript array map , filter , forEach, find 
 - useEffect hook in react 
+
+
+Task 3: 
+- create custom hook (useLocalStorage)
