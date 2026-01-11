@@ -14,3 +14,7 @@ Task 3:
 - create custom hook (useLocalStorage)
 - React Router Setup and Configuration
 - Create Signup page and configure route 
+
+Task 4: (Assignment)
+- API integration https://jsonplaceholder.typicode.com/
+- Posts, and Images api each api in separate page

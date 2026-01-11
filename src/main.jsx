@@ -4,6 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import LoginPage from './pages/Page.jsx'
+import APIFetchPage from './pages/ApiFetchPage.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -11,9 +12,9 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={< LoginPage />} />
         <Route path='/todo' element={<App />} />
-
+        <Route path='/users' element={<APIFetchPage/>} />
       </Routes>
-    </BrowserRouter>,
+    </BrowserRouter>
 
-  </StrictMode>,
+  </StrictMode>
 )
